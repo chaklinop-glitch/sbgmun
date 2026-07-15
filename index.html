@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SBGMUN 2026 — The Closing Argument</title>
+<meta name="description" content="Every war has a file. This is the year it closes. SBGMUN 2026 — The Closing Argument. 29–31 August, Sarala Birla Gyan Jyoti.">
+<meta name="theme-color" content="#030203">
+
+<!-- Open Graph -->
+<meta property="og:title" content="SBGMUN 2026 — The Closing Argument">
+<meta property="og:description" content="Four files. One pattern. Seven committees, three days, one closing argument.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=UnifrakturCook:wght@700&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#closing">Skip to event details</a>
+
+<!-- ============ AMBIENT / ATMOSPHERE LAYERS ============ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="interference" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<div class="fog" aria-hidden="true">
+  <div class="fog-layer fog-a"></div>
+  <div class="fog-layer fog-b"></div>
+  <div class="fog-layer fog-c"></div>
+</div>
+
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div id="cursor-rune" aria-hidden="true">
+  <svg viewBox="0 0 40 40" width="40" height="40">
+    <circle class="rune-ring" cx="20" cy="20" r="13" stroke-dasharray="6 4"/>
+    <path class="rune-mark" d="M20 4 L20 12 M20 28 L20 36 M4 20 L12 20 M28 20 L36 20"/>
+    <circle class="rune-dot" cx="20" cy="20" r="1.6"/>
+  </svg>
+</div>
+<div id="cursor-dot" aria-hidden="true"></div>
+
+<!-- ============ FIXED HUD ============ -->
+<div class="hud">
+  <div class="hud-seal" id="seal-hud" role="img" aria-label="Prophecy seal, four files unread"></div>
+  <button id="sound-toggle" class="magnetic" type="button" aria-pressed="false" aria-label="Enable ambient sound">
+    <span class="sound-icon" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </span>
+  </button>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-bar"></div></div>
+
+<main>
+
+  <!-- ============================================================ -->
+  <!-- HERO                                                          -->
+  <!-- ============================================================ -->
+  <section id="hero" class="section hero" data-section="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="eyebrow reveal" data-reveal="fade-up">A FILE, REOPENED</p>
+
+      <div class="hero-mark reveal" data-reveal="mark">
+        <div class="heartbeat-glow" aria-hidden="true"></div>
+        <div class="seal-mount seal-mount--hero" id="seal-hero"></div>
+        <div class="emblem-align emblem-align--hero">
+          <img
+            class="hero-logo"
+            src="assets/images/sbgmunlogo2026.png"
+            alt="SBGMUN emblem — a feather curling into a serpent, bound in a circle"
+            width="1024" height="1024"
+            fetchpriority="high">
+        </div>
+      </div>
+
+      <h1 class="hero-wordmark reveal" data-reveal="fade-up" data-scramble>SBGMUN</h1>
+      <p class="hero-case-no reveal mono" data-reveal="fade-up">CASE NO. 2026 — STATUS: SEALED</p>
+
+      <div class="hero-actions reveal" data-reveal="fade-up">
+        <a class="btn-register magnetic" href="https://docs.google.com/forms/d/e/1FAIpQLSeLcPOGAnXUwaLj9YV_wyNNwneMHnDGxju2j_Wp0JA4e-3Jww/viewform" target="_blank" rel="noopener noreferrer">
+          <span>Register Now</span>
+        </a>
+        <a class="btn-instagram magnetic" href="https://www.instagram.com/sbgmun?igsh=Nzd3MDUzZDRiejRs" target="_blank" rel="noopener noreferrer" aria-label="SBGMUN on Instagram — @sbgmun">
+          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+            <rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="17.5" cy="6.5" r="1.05" fill="currentColor"/>
+          </svg>
+          <span>@sbgmun</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-cue reveal" data-reveal="fade-up">
+      <span>Scroll to break the seal</span>
+      <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M4 8 L12 16 L20 8" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- PROLOGUE                                                      -->
+  <!-- ============================================================ -->
+  <section id="prologue" class="section prologue" data-section="prologue">
+    <div class="prologue-content">
+      <p class="eyebrow reveal" data-reveal="fade-up">PROLOGUE</p>
+      <p class="prologue-line reveal" data-reveal="fade-up">Every collapse in recorded history shares an author no textbook names.</p>
+      <p class="prologue-line reveal" data-reveal="fade-up">Not a nation. Not a leader. Four things older than either — filed, cross-referenced, and never quite closed.</p>
+      <p class="prologue-line prologue-line--accent reveal" data-reveal="fade-up">Somewhere in this building, across three days and seven rooms, that file is being reopened.</p>
+      <p class="prologue-cta reveal mono" data-reveal="fade-up">Four names. Four files. Begin with the first ↓</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- DEMON I — EGOTISM                                             -->
+  <!-- ============================================================ -->
+  <section id="egotism" class="section demon" data-section="egotism" data-theme="egotism">
+    <div class="demon-layout">
+
+      <div class="demon-art reveal" data-reveal="art">
+        <div class="relic-frame" data-parallax="tilt">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/images/egotism.png" type="image/webp">
+            <source srcset="assets/images/egotism.png" type="image/png">
+            <img src="assets/images/egotism.png" alt="Egotism — a winged, horned, feathered watcher wreathed in a crowned silhouette" width="1200" height="1620" loading="lazy">
+          </picture>
+          <div class="relic-spotlight" aria-hidden="true"></div>
+          <div class="relic-plate mono">AIPPM · EXECUTIVE PEACE MEET</div>
+        </div>
+      </div>
+
+      <div class="demon-text">
+        <p class="case-file-no reveal mono" data-reveal="fade-up">FILE NO. 01 — OIL &amp; TERROR</p>
+        <h2 class="demon-name reveal" data-reveal="fade-up" data-scramble>Egotism</h2>
+        <p class="demon-epithet reveal" data-reveal="fade-up">The Crowned Witness</p>
+        <p class="demon-myth reveal" data-reveal="fade-up">Before thrones, before flags, there was the first council — and the voice in it that mistook its own reflection for consensus. Egotism does not conquer. It is invited. It wears the shape of whoever is already speaking, and calls their certainty leadership.</p>
+        <p class="demon-philosophy reveal" data-reveal="fade-up"><span>PHILOSOPHY —</span> Leadership is just certainty no one questioned in time.</p>
+        <blockquote class="whisper reveal" data-reveal="fade-up">"You were always meant to lead this."</blockquote>
+        <p class="the-tell reveal" data-reveal="fade-up"><span>THE TELL —</span> A ceasefire that only benefits the side that named it.</p>
+        <div class="sigil-mount reveal" data-reveal="fade" data-demon="egotism" aria-hidden="true"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- DEMON II — ESCALATION                                         -->
+  <!-- ============================================================ -->
+  <section id="escalation" class="section demon demon--reverse" data-section="escalation" data-theme="escalation">
+    <div class="demon-layout">
+
+      <div class="demon-text">
+        <p class="case-file-no reveal mono" data-reveal="fade-up">FILE NO. 02 — OPERATION VAJRA</p>
+        <h2 class="demon-name reveal" data-reveal="fade-up" data-scramble>Escalation</h2>
+        <p class="demon-epithet reveal" data-reveal="fade-up">The Uncounted Step</p>
+        <p class="demon-myth reveal" data-reveal="fade-up">Escalation has never taken a single step it could be blamed for. It only ever asks for one more — a patrol extended, a deadline moved, a warning shot logged as a mistake. History remembers the width of the line finally crossed. Escalation only remembers that it looked smaller than the one before.</p>
+        <p class="demon-philosophy reveal" data-reveal="fade-up"><span>PHILOSOPHY —</span> There is no last step. Only the next one, made to look small.</p>
+        <blockquote class="whisper reveal" data-reveal="fade-up">"Just once more. Just to be safe."</blockquote>
+        <p class="the-tell reveal" data-reveal="fade-up"><span>THE TELL —</span> A "measured response" with no written ceiling anywhere.</p>
+        <div class="sigil-mount reveal" data-reveal="fade" data-demon="escalation" aria-hidden="true"></div>
+      </div>
+
+      <div class="demon-art reveal" data-reveal="art">
+        <div class="relic-frame" data-parallax="tilt">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/images/escalation.png" type="image/webp">
+            <source srcset="assets/images/escalation.png" type="image/png">
+            <img src="assets/images/escalation.png" alt="Escalation — a horned figure coiled still, wings held like a breath not yet released" width="1200" height="1620" loading="lazy">
+          </picture>
+          <div class="relic-spotlight" aria-hidden="true"></div>
+          <div class="relic-plate mono">UNSC · OPERATION VAJRA</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- DEMON III — IGNORANCE                                         -->
+  <!-- ============================================================ -->
+  <section id="ignorance" class="section demon" data-section="ignorance" data-theme="ignorance">
+    <div class="demon-layout">
+
+      <div class="demon-art reveal" data-reveal="art">
+        <div class="relic-frame" data-parallax="tilt">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/images/i.png" type="image/webp">
+            <source srcset="assets/images/i.png" type="image/png">
+            <img src="assets/images/i.png" alt="Ignorance — a wasted figure, once a person, still moving, past caring" width="1200" height="1620" loading="lazy">
+          </picture>
+          <div class="relic-spotlight" aria-hidden="true"></div>
+          <div class="relic-plate mono">UNHRC</div>
+        </div>
+      </div>
+
+      <div class="demon-text">
+        <p class="case-file-no reveal mono" data-reveal="fade-up">FILE NO. 03 — UNHRC</p>
+        <h2 class="demon-name reveal" data-reveal="fade-up" data-scramble>Ignorance</h2>
+        <p class="demon-epithet reveal" data-reveal="fade-up">The Unseeing</p>
+        <p class="demon-myth reveal" data-reveal="fade-up">Ignorance does not blind anyone. It waits — patient as erosion — for a headline to lose its color, for a number to grow too large to picture, for "again" to start sounding like weather instead of warning. It has buried more evidence than any war. It has never fired a single shot.</p>
+        <p class="demon-philosophy reveal" data-reveal="fade-up"><span>PHILOSOPHY —</span> Attention is the only defense it has ever had to defeat.</p>
+        <blockquote class="whisper reveal" data-reveal="fade-up">"It's not your headline. Not your problem."</blockquote>
+        <p class="the-tell reveal" data-reveal="fade-up"><span>THE TELL —</span> A story that used to be page one, now buried on page eleven.</p>
+        <div class="sigil-mount reveal" data-reveal="fade" data-demon="ignorance" aria-hidden="true"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- DEMON IV — SILENCE                                            -->
+  <!-- ============================================================ -->
+  <section id="silence" class="section demon demon--reverse" data-section="silence" data-theme="silence">
+    <div class="demon-layout">
+
+      <div class="demon-text">
+        <p class="case-file-no reveal mono" data-reveal="fade-up">FILE NO. 04 — PRESS CORPS</p>
+        <h2 class="demon-name reveal" data-reveal="fade-up" data-scramble>Silence</h2>
+        <p class="demon-epithet reveal" data-reveal="fade-up">The One Who Stayed</p>
+        <p class="demon-myth reveal" data-reveal="fade-up">Everyone else leaves the room eventually — the witnesses, the cameras, the inquiry. Silence does not. It was never loud enough to be accused of anything, and that is precisely how it has survived every version of this file. It signs nothing. It simply agrees to remember less than it saw.</p>
+        <p class="demon-philosophy reveal" data-reveal="fade-up"><span>PHILOSOPHY —</span> The safest position in any crisis is the one that leaves no minutes.</p>
+        <blockquote class="whisper reveal" data-reveal="fade-up">"Say nothing. Let it pass."</blockquote>
+        <p class="the-tell reveal" data-reveal="fade-up"><span>THE TELL —</span> An investigation that opened and simply never closed.</p>
+        <div class="sigil-mount reveal" data-reveal="fade" data-demon="silence" aria-hidden="true"></div>
+      </div>
+
+      <div class="demon-art reveal" data-reveal="art">
+        <div class="relic-frame" data-parallax="tilt">
+          <picture>
+            <source media="(max-width: 640px)" srcset="assets/images/s.png" type="image/webp">
+            <source srcset="assets/images/s.png" type="image/png">
+            <img src="assets/images/s.png" alt="Silence — a faceless, shrouded figure still standing in an empty room" width="1200" height="1620" loading="lazy">
+          </picture>
+          <div class="relic-spotlight" aria-hidden="true"></div>
+          <div class="relic-plate mono">INTERNATIONAL PRESS CORPS</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TRILOGY / CASE HISTORY                                        -->
+  <!-- ============================================================ -->
+  <section id="trilogy" class="section trilogy" data-section="trilogy">
+    <p class="eyebrow reveal" data-reveal="fade-up">CASE HISTORY</p>
+    <h2 class="trilogy-title reveal" data-reveal="fade-up">Three Editions. One File.</h2>
+
+    <div class="timeline">
+      <div class="timeline-line" aria-hidden="true"><span class="timeline-line-fill"></span></div>
+
+      <div class="timeline-node reveal" data-reveal="fade-up">
+        <span class="timeline-year mono">2019</span>
+        <span class="timeline-status">OPENED</span>
+        <p class="timeline-desc">The first flagship edition. The pattern is noticed for the first time.</p>
+      </div>
+
+      <div class="timeline-node reveal" data-reveal="fade-up">
+        <span class="timeline-year mono">2023</span>
+        <span class="timeline-status">THICKENED</span>
+        <p class="timeline-desc">The second flagship. More rooms, more evidence, more of the Board drawn in.</p>
+      </div>
+
+      <div class="timeline-node timeline-node--current reveal" data-reveal="fade-up">
+        <span class="timeline-year mono">2026</span>
+        <span class="timeline-status">THE CLOSING ARGUMENT</span>
+        <p class="timeline-desc">Three days. Seven committees. The case that was never finished gets one.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FINAL REVEAL                                                  -->
+  <!-- ============================================================ -->
+  <section id="reveal" class="section reveal" data-section="reveal">
+    <div class="reveal-content">
+
+      <div class="seal-mount seal-mount--final reveal" data-reveal="mark" id="seal-final">
+        <div class="emblem-align emblem-align--final">
+          <img
+            class="seal-final-logo"
+            src="assets/images/sbgmunlogo2026.png"
+            alt="SBGMUN emblem — a feather curling into a serpent, bound in a circle"
+            width="1024" height="1024"
+            loading="lazy">
+        </div>
+      </div>
+
+      <p class="prophecy reveal" data-reveal="fade-up">Four files. One pattern, wearing four faces. The council never needed a villain — it has always had one for every seat at the table. What it has never had is a closing argument.</p>
+      <p class="prophecy prophecy--accent reveal" data-reveal="fade-up">For three days, seven committees will try to write one. The verdict is not decided yet. That is not a metaphor for this event. For three days, it is the event.</p>
+
+      <div class="title-lockup reveal" data-reveal="fade-up">
+        <p class="title-lockup-eyebrow mono">SBGMUN 2026</p>
+        <h2 class="title-lockup-main" data-scramble>The Closing Argument</h2>
+        <p class="title-lockup-tag">Seven committees. Four files. Three days to argue humanity's case.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CLOSING / EVENT DETAILS                                       -->
+  <!-- ============================================================ -->
+  <footer id="closing" class="section closing" data-section="closing">
+    <div class="closing-content">
+      <p class="closing-dates reveal" data-reveal="fade-up">29–31 AUGUST 2026</p>
+      <p class="closing-venue reveal" data-reveal="fade-up">Sarala Birla Gyan Jyoti</p>
+
+      <p class="closing-line reveal" data-reveal="fade-up">"Every war has a file. This is the year it closes."</p>
+
+      <div class="closing-stamp reveal" data-reveal="stamp" id="closing-stamp" aria-hidden="true">
+        <span class="stamp-label mono">CASE STATUS</span>
+        <span class="stamp-word mono" id="stamp-word">OPEN</span>
+      </div>
+
+      <p class="closing-tags mono reveal" data-reveal="fade-up">#SBGMUN2026 &nbsp;·&nbsp; #TheClosingArgument</p>
+
+      <p class="closing-fineprint mono reveal" data-reveal="fade-up">Scroll once more. Not everything was in the file.</p>
+
+      <p class="site-credit mono">designed by <a href="https://www.linkedin.com/in/chaklin-mustaf-a-5ba019385" target="_blank" rel="noopener noreferrer">Chaklin Mustaf</a></p>
+    </div>
+
+    <div id="bottom-sentinel" aria-hidden="true"></div>
+  </footer>
+
+</main>
+
+<!-- ============ HIDDEN PROPHECY (KONAMI EASTER EGG) ============ -->
+<div id="hidden-prophecy" class="hidden-overlay" hidden>
+  <div class="hidden-overlay-panel">
+    <p class="mono hidden-file-no">FILE NO. 00 — REDACTED</p>
+    <p class="hidden-text">Four names were released to the public. A fifth was withheld.</p>
+    <p class="hidden-text">It has not been assigned a committee. It has not been assigned a name. It has simply been assigned to watch.</p>
+    <p class="hidden-text hidden-text--small">You found this because it let you.</p>
+    <button id="close-prophecy" class="mono" type="button">Seal it again</button>
+  </div>
+</div>
+
+<!-- ============ BOTTOM-OF-PAGE TOAST ============ -->
+<div id="bottom-toast" class="toast mono" hidden>END OF FILE. <span>Some pages are never released.</span></div>
+
+<script src="script.js"></script>
+</body>
+</html>
